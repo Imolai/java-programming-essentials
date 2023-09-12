@@ -92,11 +92,11 @@ Programming guide about Java 20 essentials
 	* 22.2. [Writing to a File](#WritingtoaFile)
 	* 22.3. [NIO.2 for File Operations](#NIO.2forFileOperations)
 * 23. [Concurrency in Java](#ConcurrencyinJava)
-	* 23.1. [Threads (Go: Coroutines)](#ThreadsGo:Coroutines)
-	* 23.2. [BlockingQueue (Go: Channels)](#BlockingQueueGo:Channels)
-	* 23.3. [Executors (Go: Select)](#ExecutorsGo:Select)
-	* 23.4. [CountDownLatch (Go: WaitGroup)](#CountDownLatchGo:WaitGroup)
-	* 23.5. [Synchronized, Locks (Go: Mutex)](#SynchronizedLocksGo:Mutex)
+	* 23.1. [Threads](#Threads)
+	* 23.2. [BlockingQueue](#BlockingQueue)
+	* 23.3. [Executors](#Executors)
+	* 23.4. [CountDownLatch](#CountDownLatch)
+	* 23.5. [Synchronized, Locks](#SynchronizedLocks)
 * 24. [Unit Tests and Other Testing](#UnitTestsandOtherTesting)
 	* 24.1. [Basic Unit Test](#BasicUnitTest)
 	* 24.2. [Mocking](#Mocking)
@@ -1238,9 +1238,9 @@ These classes provide a more modern approach to file manipulation, allowing for 
 
 Java provides a rich set of features for concurrent programming.
 
-###  23.1. <a name='ThreadsGo:Coroutines'></a>Threads (Go: Coroutines)
+###  23.1. <a name='Threads'></a>Threads
 
-Java's primary unit of concurrency is the `Thread`. Threads can be created by implementing the `Runnable` interface or extending the `Thread` class.
+Java's primary unit of concurrency is the `Thread` (Go: Coroutines). Threads can be created by implementing the `Runnable` interface or extending the `Thread` class.
 
 ```java
 Thread thread = new Thread(() -> {
@@ -1249,9 +1249,9 @@ Thread thread = new Thread(() -> {
 thread.start();
 ```
 
-###  23.2. <a name='BlockingQueueGo:Channels'></a>BlockingQueue (Go: Channels)
+###  23.2. <a name='BlockingQueue'></a>BlockingQueue
 
-Java's `BlockingQueue` can be used as a way to safely pass data between threads.
+Java's `BlockingQueue` (Go: Channels) can be used as a way to safely pass data between threads.
 
 ```java
 import java.util.concurrent.ArrayBlockingQueue;
@@ -1262,7 +1262,7 @@ queue.put(1);  // Blocks if the queue is full
 Integer value = queue.take();  // Blocks if the queue is empty
 ```
 
-###  23.3. <a name='ExecutorsGo:Select'></a>Executors (Go: Select)
+###  23.3. <a name='Executors'></a>Executors
 
 Java doesn't have a `select` statement like Go, but you can achieve similar functionality using `ExecutorService`.
 
@@ -1276,9 +1276,9 @@ executor.submit(() -> {
 });
 ```
 
-###  23.4. <a name='CountDownLatchGo:WaitGroup'></a>CountDownLatch (Go: WaitGroup)
+###  23.4. <a name='CountDownLatch'></a>CountDownLatch
 
-`CountDownLatch` is used to make a thread wait until other threads complete their tasks.
+`CountDownLatch` (Go: WaitGroup) is used to make a thread wait until other threads complete their tasks.
 
 ```java
 import java.util.concurrent.CountDownLatch;
@@ -1292,9 +1292,9 @@ latch.countDown();
 latch.await();
 ```
 
-###  23.5. <a name='SynchronizedLocksGo:Mutex'></a>Synchronized, Locks (Go: Mutex)
+###  23.5. <a name='SynchronizedLocks'></a>Synchronized, Locks
 
-Java offers various mechanisms for mutual exclusion, including `synchronized` blocks and explicit locks like `ReentrantLock`.
+Java offers various mechanisms for mutual exclusion (Go: Mutex), including `synchronized` blocks and explicit locks like `ReentrantLock`.
 
 ```java
 synchronized(myObject) {
