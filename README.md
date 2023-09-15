@@ -2,122 +2,152 @@
 
 Programming guide about Java 20 essentials
 
-## Contents
+##  1. <a name='Contents'></a>Contents
 
-* 1. [About Java](#AboutJava)
-* 2. [Running Java Programs](#RunningJavaPrograms)
-	* 2.1. [Installing JDK](#InstallingJDK)
-	* 2.2. [Writing and Running a Simple Java Program](#WritingandRunningaSimpleJavaProgram)
-	* 2.3. [Using an IDE](#UsinganIDE)
-* 3. [Modern and Safe Java Practices](#ModernandSafeJavaPractices)
-	* 3.1. [Immutability](#Immutability)
-	* 3.2. [Null Safety](#NullSafety)
-	* 3.3. [Using Final Variables](#UsingFinalVariables)
-	* 3.4. [Code Reviews and Static Analysis](#CodeReviewsandStaticAnalysis)
-* 4. [Java Modules and Packages](#JavaModulesandPackages)
-	* 4.1. [Packages](#Packages)
-	* 4.2. [Modules (Java 9+)](#ModulesJava9)
-* 5. [Basic Syntax](#BasicSyntax)
-	* 5.1. [Comments](#Comments)
-	* 5.2. [Identifiers and Keywords](#IdentifiersandKeywords)
-	* 5.3. [Semicolons and Blocks](#SemicolonsandBlocks)
-	* 5.4. [Whitespace and Indentation](#WhitespaceandIndentation)
-	* 5.5. [Case Sensitivity](#CaseSensitivity)
-* 6. [Constants](#Constants)
-* 7. [Variables, Types](#VariablesTypes)
-	* 7.1. [Primitives](#Primitives)
-	* 7.2. [Arrays](#Arrays)
-	* 7.3. [Maps](#Maps)
-	* 7.4. [Strings](#Strings)
-* 8. [Collections](#Collections)
-	* 8.1. [Lists](#Lists)
-	* 8.2. [Sets](#Sets)
-	* 8.3. [Queues](#Queues)
-	* 8.4. [Maps](#Maps-1)
-* 9. [Scopes](#Scopes)
-	* 9.1. [Local Scope](#LocalScope)
-	* 9.2. [Instance Scope](#InstanceScope)
-	* 9.3. [Class Scope (Static Scope)](#ClassScopeStaticScope)
-	* 9.4. [Block Scope](#BlockScope)
-* 10. [Builtin Operators and Functions](#BuiltinOperatorsandFunctions)
-	* 10.1. [Arithmetic Operators](#ArithmeticOperators)
-	* 10.2. [Comparison Operators](#ComparisonOperators)
-	* 10.3. [Logical Operators](#LogicalOperators)
-	* 10.4. [Bitwise Operators](#BitwiseOperators)
-* 11. [Conditionals and Looping](#ConditionalsandLooping)
-	* 11.1. [Conditionals](#Conditionals)
-	* 11.2. [Looping](#Looping)
-* 12. [Functions](#Functions)
-	* 12.1. [Function Declaration and Calling](#FunctionDeclarationandCalling)
-	* 12.2. [Function Overloading](#FunctionOverloading)
-	* 12.3. [Variable Arguments](#VariableArguments)
-* 13. [Classes](#Classes)
-	* 13.1. [Defining a Class](#DefiningaClass)
-	* 13.2. [Creating an Object](#CreatinganObject)
-	* 13.3. [Accessing Fields and Methods](#AccessingFieldsandMethods)
-* 14. [Interfaces](#Interfaces)
-	* 14.1. [Defining an Interface](#DefininganInterface)
-	* 14.2. [Implementing an Interface](#ImplementinganInterface)
-	* 14.3. [Using an Interface](#UsinganInterface)
-* 15. [Exceptions](#Exceptions)
-	* 15.1. [Types of Exceptions](#TypesofExceptions)
-	* 15.2. [Basic Exception Handling](#BasicExceptionHandling)
-	* 15.3. [Finally Block](#FinallyBlock)
-* 16. [Generics](#Generics)
-	* 16.1. [Basic Usage](#BasicUsage)
-	* 16.2. [Bounded Type Parameters](#BoundedTypeParameters)
-	* 16.3. [Wildcards](#Wildcards)
-* 17. [Lambdas](#Lambdas)
-	* 17.1. [Basic Syntax](#BasicSyntax-1)
-	* 17.2. [Using Lambdas with Functional Interfaces](#UsingLambdaswithFunctionalInterfaces)
-	* 17.3. [Method References](#MethodReferences)
-* 18. [Annotations](#Annotations)
-	* 18.1. [Built-In Annotations](#Built-InAnnotations)
-	* 18.2. [Custom Annotations](#CustomAnnotations)
-* 19. [Date, Time](#DateTime)
-	* 19.1. [LocalDate](#LocalDate)
-	* 19.2. [LocalTime](#LocalTime)
-	* 19.3. [LocalDateTime](#LocalDateTime)
-	* 19.4. [Formatting and Parsing](#FormattingandParsing)
-* 20. [Pattern Matching, Regular Expressions](#PatternMatchingRegularExpressions)
+<!-- vscode-markdown-toc -->
+* 1. [Contents](#Contents)
+* 2. [About Java](#AboutJava)
+* 3. [Getting Help](#GettingHelp)
+* 4. [Running Java Programs](#RunningJavaPrograms)
+	* 4.1. [Installing JDK](#InstallingJDK)
+	* 4.2. [Writing and Running a Simple Java Program](#WritingandRunningaSimpleJavaProgram)
+	* 4.3. [Using an IDE](#UsinganIDE)
+	* 4.4. [Debugging](#Debugging)
+		* 4.4.1. [Setting Breakpoints](#SettingBreakpoints)
+		* 4.4.2. [Stepping Through Code](#SteppingThroughCode)
+		* 4.4.3. [Exception Breakpoints](#ExceptionBreakpoints)
+		* 4.4.4. [Watch Expressions](#WatchExpressions)
+		* 4.4.5. [Debugging Threads](#DebuggingThreads)
+* 5. [Modern and Safe Java Practices](#ModernandSafeJavaPractices)
+	* 5.1. [Immutability](#Immutability)
+	* 5.2. [Null Safety](#NullSafety)
+	* 5.3. [Using Final Variables](#UsingFinalVariables)
+	* 5.4. [Code Reviews and Static Analysis](#CodeReviewsandStaticAnalysis)
+* 6. [Java Modules and Packages](#JavaModulesandPackages)
+	* 6.1. [Packages](#Packages)
+		* 6.1.1. [File Organization and Project Structure](#FileOrganizationandProjectStructure)
+		* 6.1.2. [Using Packages](#UsingPackages)
+	* 6.2. [Modules (Java 9+)](#ModulesJava9)
+* 7. [Basic Syntax](#BasicSyntax)
+	* 7.1. [Comments](#Comments)
+	* 7.2. [Javadoc Comments](#JavadocComments)
+	* 7.3. [Identifiers and Keywords](#IdentifiersandKeywords)
+	* 7.4. [Semicolons and Blocks](#SemicolonsandBlocks)
+	* 7.5. [Whitespace and Indentation](#WhitespaceandIndentation)
+	* 7.6. [Case Sensitivity](#CaseSensitivity)
+* 8. [Constants](#Constants)
+* 9. [Variables, Types](#VariablesTypes)
+	* 9.1. [Primitives](#Primitives)
+	* 9.2. [Arrays](#Arrays)
+	* 9.3. [Maps](#Maps)
+	* 9.4. [Strings](#Strings)
+* 10. [Collections](#Collections)
+	* 10.1. [Lists](#Lists)
+	* 10.2. [Sets](#Sets)
+	* 10.3. [Queues](#Queues)
+	* 10.4. [Maps](#Maps-1)
+* 11. [10. Utilities](#Utilities)
+	* 11.1. [java.util.Arrays](#java.util.Arrays)
+	* 11.2. [java.util.Date and java.util.Calendar](#java.util.Dateandjava.util.Calendar)
+	* 11.3. [java.util.Random](#java.util.Random)
+	* 11.4. [java.util.Scanner](#java.util.Scanner)
+* 12. [Scopes](#Scopes)
+	* 12.1. [Local Scope](#LocalScope)
+	* 12.2. [Instance Scope](#InstanceScope)
+	* 12.3. [Class Scope (Static Scope)](#ClassScopeStaticScope)
+	* 12.4. [Block Scope](#BlockScope)
+* 13. [Builtin Operators and Functions](#BuiltinOperatorsandFunctions)
+	* 13.1. [Arithmetic Operators](#ArithmeticOperators)
+	* 13.2. [Comparison Operators](#ComparisonOperators)
+	* 13.3. [Logical Operators](#LogicalOperators)
+	* 13.4. [Bitwise Operators](#BitwiseOperators)
+* 14. [Conditionals and Looping](#ConditionalsandLooping)
+	* 14.1. [Conditionals](#Conditionals)
+	* 14.2. [Looping](#Looping)
+		* 14.2.1. [For loop](#Forloop)
+		* 14.2.2. [While loop](#Whileloop)
+		* 14.2.3. [Do-while loop](#Do-whileloop)
+		* 14.2.4. [Break](#Break)
+		* 14.2.5. [Continue](#Continue)
+* 15. [Functions](#Functions)
+	* 15.1. [Function Declaration and Calling](#FunctionDeclarationandCalling)
+	* 15.2. [Function Overloading](#FunctionOverloading)
+	* 15.3. [Variable Arguments](#VariableArguments)
+* 16. [Classes](#Classes)
+	* 16.1. [Defining a Class](#DefiningaClass)
+	* 16.2. [Creating an Object](#CreatinganObject)
+	* 16.3. [Accessing Fields and Methods](#AccessingFieldsandMethods)
+	* 16.4. [Enums](#Enums)
+* 17. [Interfaces](#Interfaces)
+	* 17.1. [Defining an Interface](#DefininganInterface)
+	* 17.2. [Implementing an Interface](#ImplementinganInterface)
+	* 17.3. [Using an Interface](#UsinganInterface)
+* 18. [Exceptions](#Exceptions)
+	* 18.1. [Types of Exceptions](#TypesofExceptions)
+	* 18.2. [Basic Exception Handling](#BasicExceptionHandling)
+	* 18.3. [Finally Block](#FinallyBlock)
+* 19. [Generics](#Generics)
+	* 19.1. [Basic Usage](#BasicUsage)
+	* 19.2. [Bounded Type Parameters](#BoundedTypeParameters)
+	* 19.3. [Wildcards](#Wildcards)
+* 20. [Lambdas](#Lambdas)
 	* 20.1. [Basic Syntax](#BasicSyntax-1)
-	* 20.2. [Using Regular Expressions](#UsingRegularExpressions)
-	* 20.3. [Find and Replace](#FindandReplace)
-* 21. [Streams](#Streams)
-	* 21.1. [Creating Streams](#CreatingStreams)
-	* 21.2. [Common Operations](#CommonOperations)
-	* 21.3. [Parallel Streams](#ParallelStreams)
-* 22. [Files and I/O](#FilesandIO)
-	* 22.1. [Reading from a File](#ReadingfromaFile)
-	* 22.2. [Writing to a File](#WritingtoaFile)
-	* 22.3. [NIO.2 for File Operations](#NIO.2forFileOperations)
-* 23. [Concurrency in Java](#ConcurrencyinJava)
-	* 23.1. [Threads](#Threads)
-	* 23.2. [BlockingQueue](#BlockingQueue)
-	* 23.3. [Executors](#Executors)
-	* 23.4. [CountDownLatch](#CountDownLatch)
-	* 23.5. [Synchronized, Locks](#SynchronizedLocks)
-* 24. [Unit Tests and Other Testing](#UnitTestsandOtherTesting)
-	* 24.1. [Basic Unit Test](#BasicUnitTest)
-	* 24.2. [Mocking](#Mocking)
-* 25. [Functional Programming in Java](#FunctionalProgramminginJava)
-	* 25.1. [Lambda Expressions](#LambdaExpressions)
-	* 25.2. [Streams API](#StreamsAPI)
-	* 25.3. [Optional](#Optional)
-* 26. [Functional Programming in Java (Extended)](#FunctionalProgramminginJavaExtended)
-	* 26.1. [Higher-Order Functions](#Higher-OrderFunctions)
-	* 26.2. [Stream Operations](#StreamOperations)
-		* 26.2.1. [Filtering](#Filtering)
-		* 26.2.2. [Mapping](#Mapping)
-		* 26.2.3. [Reducing](#Reducing)
-		* 26.2.4. [Flat Mapping](#FlatMapping)
-	* 26.3. [Immutability](#Immutability-1)
-	* 26.4. [Optional Class](#OptionalClass)
-* 27. [Summary](#Summary)
+	* 20.2. [Using Lambdas with Functional Interfaces](#UsingLambdaswithFunctionalInterfaces)
+	* 20.3. [Method References](#MethodReferences)
+* 21. [Annotations](#Annotations)
+	* 21.1. [Built-In Annotations](#Built-InAnnotations)
+	* 21.2. [Custom Annotations](#CustomAnnotations)
+* 22. [Date, Time](#DateTime)
+	* 22.1. [LocalDate](#LocalDate)
+	* 22.2. [LocalTime](#LocalTime)
+	* 22.3. [LocalDateTime](#LocalDateTime)
+	* 22.4. [Formatting and Parsing](#FormattingandParsing)
+* 23. [Pattern Matching, Regular Expressions](#PatternMatchingRegularExpressions)
+	* 23.1. [Basic Syntax](#BasicSyntax-1)
+	* 23.2. [Using Regular Expressions](#UsingRegularExpressions)
+	* 23.3. [Find and Replace](#FindandReplace)
+* 24. [Streams](#Streams)
+	* 24.1. [Creating Streams](#CreatingStreams)
+	* 24.2. [Common Operations](#CommonOperations)
+	* 24.3. [Parallel Streams](#ParallelStreams)
+* 25. [Files and I/O](#FilesandIO)
+	* 25.1. [Reading from a File](#ReadingfromaFile)
+	* 25.2. [Writing to a File](#WritingtoaFile)
+	* 25.3. [NIO.2 for File Operations](#NIO.2forFileOperations)
+* 26. [Concurrency in Java](#ConcurrencyinJava)
+	* 26.1. [Threads](#Threads)
+	* 26.2. [BlockingQueue](#BlockingQueue)
+	* 26.3. [Executors](#Executors)
+	* 26.4. [CountDownLatch](#CountDownLatch)
+	* 26.5. [Synchronized, Locks](#SynchronizedLocks)
+* 27. [Unit Tests and Other Testing](#UnitTestsandOtherTesting)
+	* 27.1. [Basic Unit Test](#BasicUnitTest)
+	* 27.2. [Mocking](#Mocking)
+	* 27.3. [Coverage](#Coverage)
+* 28. [Functional Programming in Java](#FunctionalProgramminginJava)
+	* 28.1. [Lambda Expressions](#LambdaExpressions)
+	* 28.2. [Streams API](#StreamsAPI)
+	* 28.3. [Optional](#Optional)
+* 29. [Functional Programming in Java (Extended)](#FunctionalProgramminginJavaExtended)
+	* 29.1. [Higher-Order Functions](#Higher-OrderFunctions)
+	* 29.2. [Stream Operations](#StreamOperations)
+		* 29.2.1. [Filtering](#Filtering)
+		* 29.2.2. [Mapping](#Mapping)
+		* 29.2.3. [Reducing](#Reducing)
+		* 29.2.4. [Flat Mapping](#FlatMapping)
+	* 29.3. [Immutability](#Immutability-1)
+	* 29.4. [Optional Class](#OptionalClass)
+* 30. [Summary](#Summary)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
 
 ---
 
-##  1. <a name='AboutJava'></a>About Java
+##  2. <a name='AboutJava'></a>About Java
 
 Java is a high-level, object-oriented programming language developed by Sun Microsystems, which is now owned by Oracle Corporation. It was initially released in 1995 and has since become one of the most widely-used programming languages in the world. Java is platform-independent, meaning code written in Java can run on any device that has a Java Virtual Machine (JVM).
 
@@ -125,30 +155,35 @@ The language is known for its portability, security features, and strong communi
 
 Java has gone through numerous updates and versions. As of the time of writing, Java 20 is the latest version, featuring modern constructs and syntactical sugar to make Java code more expressive and easier to read.
 
-The most importank links:
+---
+
+##  3. <a name='GettingHelp'></a>Getting Help
+
+Getting stuck is normal. Here are some resources:
 
 1. [Learn Java](https://dev.java/learn/)
 2. [Java Downloads](https://www.oracle.com/java/technologies/downloads/)
 3. [OpenJDK](https://openjdk.org/)
 4. [Java 20 API Docs](https://docs.oracle.com/en/java/javase/20/docs/api/index.html)
-5. [Java Documentation](https://docs.oracle.com/en/java/)
-6. [Java FAQ](https://dev.java/learn/faq/)
+5. [Java Language Specification](https://docs.oracle.com/javase/specs/jls/se20/html/index.html)
+6. [Java Documentation](https://docs.oracle.com/en/java/)
+7. [Java FAQ](https://dev.java/learn/faq/)
 
 ---
 
-##  2. <a name='RunningJavaPrograms'></a>Running Java Programs
+##  4. <a name='RunningJavaPrograms'></a>Running Java Programs
 
 To run Java programs, you'll need two main components:
 
 1. **JDK (Java Development Kit)**: This includes the JRE (Java Runtime Environment) and development tools like the compiler (`javac`).
 2. **IDE (Integrated Development Environment)**: This is optional but recommended. Popular IDEs for Java development include IntelliJ IDEA, Eclipse, and NetBeans.
 
-###  2.1. <a name='InstallingJDK'></a>Installing JDK
+###  4.1. <a name='InstallingJDK'></a>Installing JDK
 
 1. Download the latest JDK from the official Oracle website or through package managers on Linux.
 2. Install it and set up the environment variables.
 
-###  2.2. <a name='WritingandRunningaSimpleJavaProgram'></a>Writing and Running a Simple Java Program
+###  4.2. <a name='WritingandRunningaSimpleJavaProgram'></a>Writing and Running a Simple Java Program
 
 Here's how you can write and run a simple Java program using a text editor and the command line:
 
@@ -165,20 +200,20 @@ Here's how you can write and run a simple Java program using a text editor and t
 2. Open the terminal and navigate to the directory where `HelloWorld.java` is saved.
 3. Compile the Java file:
 
-    ```
+    ```bash
     javac HelloWorld.java
     ```
 
     This will generate a `HelloWorld.class` file.
 4. Run the compiled class file:
 
-    ```
+    ```bash
     java HelloWorld
     ```
 
     You should see the output `Hello, World!` printed to the terminal.
 
-###  2.3. <a name='UsinganIDE'></a>Using an IDE
+###  4.3. <a name='UsinganIDE'></a>Using an IDE
 
 If you're using an IDE, the process is simplified:
 
@@ -187,13 +222,39 @@ If you're using an IDE, the process is simplified:
 3. Write the same code as above.
 4. Click the "Run" button.
 
+###  4.4. <a name='Debugging'></a>Debugging
+
+Debugging is essential for identifying and fixing issues. You can debug via the [IDE](https://code.visualstudio.com/docs/java/java-debugging), or in the command line via [`jdb`](https://foojay.io/today/jdb/).
+
+It is important to compile this class with the "`-g`" option (`javac -g Test.java`), which generates all the debugging information including local variables.
+
+####  4.4.1. <a name='SettingBreakpoints'></a>Setting Breakpoints
+
+Place breakpoints where you want to pause execution.
+
+####  4.4.2. <a name='SteppingThroughCode'></a>Stepping Through Code
+
+Use the debugger to step through code line by line.
+
+####  4.4.3. <a name='ExceptionBreakpoints'></a>Exception Breakpoints
+
+You can set breakpoints that will be triggered when an exception is thrown.
+
+####  4.4.4. <a name='WatchExpressions'></a>Watch Expressions
+
+Watch expressions allow you to watch variable values and expressions in real-time.
+
+####  4.4.5. <a name='DebuggingThreads'></a>Debugging Threads
+
+Learn how to debug multi-threaded applications.
+
 ---
 
-##  3. <a name='ModernandSafeJavaPractices'></a>Modern and Safe Java Practices
+##  5. <a name='ModernandSafeJavaPractices'></a>Modern and Safe Java Practices
 
 Modern Java development encourages a set of best practices to write efficient, maintainable, and secure code. Some of these practices include:
 
-###  3.1. <a name='Immutability'></a>Immutability
+###  5.1. <a name='Immutability'></a>Immutability
 
 Using immutable objects where possible can make your application safer from bugs and easier to reason about.
 
@@ -217,7 +278,7 @@ public final class ImmutablePoint {
 }
 ```
 
-###  3.2. <a name='NullSafety'></a>Null Safety
+###  5.2. <a name='NullSafety'></a>Null Safety
 
 Avoiding `NullPointerException` is a common goal. Modern Java practices recommend using `Optional<T>` to express the possibility of absence.
 
@@ -232,7 +293,7 @@ public class UserService {
 }
 ```
 
-###  3.3. <a name='UsingFinalVariables'></a>Using Final Variables
+###  5.3. <a name='UsingFinalVariables'></a>Using Final Variables
 
 Marking variables with `final` ensures that they can't be reassigned, making the code easier to understand.
 
@@ -243,17 +304,17 @@ public void calculateArea(final double radius) {
 }
 ```
 
-###  3.4. <a name='CodeReviewsandStaticAnalysis'></a>Code Reviews and Static Analysis
+###  5.4. <a name='CodeReviewsandStaticAnalysis'></a>Code Reviews and Static Analysis
 
 Tools like [SonarQube](https://www.sonarsource.com/products/sonarqube/) and regular peer reviews can help maintain a high code quality.
 
 ---
 
-##  4. <a name='JavaModulesandPackages'></a>Java Modules and Packages
+##  6. <a name='JavaModulesandPackages'></a>Java Modules and Packages
 
 Modules and packages are ways to organize your Java code. They help manage dependencies and improve code reusability.
 
-###  4.1. <a name='Packages'></a>Packages
+###  6.1. <a name='Packages'></a>Packages
 
 Packages are namespaces that organize classes and interfaces. The package declaration should be the first statement in a Java source file.
 
@@ -267,7 +328,23 @@ To use classes from other packages, you'll need to import them:
 import java.util.List;
 ```
 
-###  4.2. <a name='ModulesJava9'></a>Modules (Java 9+)
+####  6.1.1. <a name='FileOrganizationandProjectStructure'></a>File Organization and Project Structure
+
+Java projects typically follow a directory structure.
+
+* `src/`: Source files
+* `lib/`: Libraries
+* `test/`: Test files
+
+####  6.1.2. <a name='UsingPackages'></a>Using Packages
+
+Organize your classes into packages.
+
+```java
+package com.myapp;
+```
+
+###  6.2. <a name='ModulesJava9'></a>Modules (Java 9+)
 
 Java 9 introduced the module system to modularize the JDK and user code. A module is a set of packages designed for reuse and strongly encapsulates its implementation.
 
@@ -298,11 +375,11 @@ To compile and run modular code:
 
 ---
 
-##  5. <a name='BasicSyntax'></a>Basic Syntax
+##  7. <a name='BasicSyntax'></a>Basic Syntax
 
 Java's syntax might look familiar if you've worked with C, C++, or other C-family languages. However, Java has its unique set of rules and constructs. Let's look at some of the essential elements:
 
-###  5.1. <a name='Comments'></a>Comments
+###  7.1. <a name='Comments'></a>Comments
 
 Java supports single-line and multi-line comments:
 
@@ -315,7 +392,38 @@ Java supports single-line and multi-line comments:
 */
 ```
 
-###  5.2. <a name='IdentifiersandKeywords'></a>Identifiers and Keywords
+###  7.2. <a name='JavadocComments'></a>Javadoc Comments
+
+Javadoc comments start with `/**` and end with `*/`. They can include several tags:
+
+* `@author` (classes and interfaces only, required)
+* `@version` (classes and interfaces only, required. See footnote 1)
+* `@param`: Describes method parameters.
+* `@return`: Describes the return value.
+* `@throws`: (@exception was the original tag) Describes exceptions that the method can throw.
+* `@exception` (@throws is a synonym added in Javadoc 1.2)
+* `@see`
+* `@since`
+* `@serial` (or @serialField or @serialData)
+* `@deprecated` (see How and When To Deprecate APIs)
+
+```java
+/**
+ * Calculates the square of a number.
+ *
+ * @param x The number to be squared.
+ * @return The square of the number.
+ * @throws IllegalArgumentException if x is negative.
+ */
+public int square(int x) {
+    if (x < 0) {
+        throw new IllegalArgumentException("Negative input");
+    }
+    return x * x;
+}
+```
+
+###  7.3. <a name='IdentifiersandKeywords'></a>Identifiers and Keywords
 
 Java identifiers are used for class names, method names, and variables. They must start with a letter, underscore (`_`), or dollar sign (`$`); subsequent characters can be digits.
 
@@ -326,7 +434,7 @@ int 123abc;      // invalid
 
 Java also has a set of reserved keywords like `class`, `int`, `return`, etc., which cannot be used as identifiers.
 
-###  5.3. <a name='SemicolonsandBlocks'></a>Semicolons and Blocks
+###  7.4. <a name='SemicolonsandBlocks'></a>Semicolons and Blocks
 
 Java uses semicolons to terminate statements:
 
@@ -342,7 +450,7 @@ if (x > 0) {
 }
 ```
 
-###  5.4. <a name='WhitespaceandIndentation'></a>Whitespace and Indentation
+###  7.5. <a name='WhitespaceandIndentation'></a>Whitespace and Indentation
 
 Java is whitespace-insensitive, but proper indentation is crucial for readability:
 
@@ -350,13 +458,13 @@ Java is whitespace-insensitive, but proper indentation is crucial for readabilit
 int x=10; int y=20;  // valid but not recommended
 ```
 
-###  5.5. <a name='CaseSensitivity'></a>Case Sensitivity
+###  7.6. <a name='CaseSensitivity'></a>Case Sensitivity
 
 Java is case-sensitive, which means `Variable` and `variable` are different identifiers.
 
 ---
 
-##  6. <a name='Constants'></a>Constants
+##  8. <a name='Constants'></a>Constants
 
 In Java, you can define constants that cannot be modified after their initial assignment. This is often useful to make the code more readable and to safeguard against modifying values unintentionally.
 
@@ -386,11 +494,11 @@ In this example, `PI` is a constant and its value cannot be changed after its in
 
 ---
 
-##  7. <a name='VariablesTypes'></a>Variables, Types
+##  9. <a name='VariablesTypes'></a>Variables, Types
 
 In Java, variables are used to store data that can be used and manipulated throughout a program. The type of a variable determines the size and layout of the variable's memory, the range of values that can be stored, and the set of operations that can be applied.
 
-###  7.1. <a name='Primitives'></a>Primitives
+###  9.1. <a name='Primitives'></a>Primitives
 
 Java has 8 primitive types: `byte`, `short`, `int`, `long`, `float`, `double`, `char`, and `boolean`.
 
@@ -401,7 +509,7 @@ boolean isActive = true;
 char grade = 'A';
 ```
 
-###  7.2. <a name='Arrays'></a>Arrays
+###  9.2. <a name='Arrays'></a>Arrays
 
 Arrays are used to store multiple values of the same type:
 
@@ -416,7 +524,7 @@ Or using shorthand:
 int[] numbers = {1, 2, 3, 4, 5};
 ```
 
-###  7.3. <a name='Maps'></a>Maps
+###  9.3. <a name='Maps'></a>Maps
 
 Java provides map implementations through the `Map` interface, most notably `HashMap`:
 
@@ -428,7 +536,7 @@ Map<String, Integer> studentGrades = new HashMap<>();
 studentGrades.put("Alice", 90);
 ```
 
-###  7.4. <a name='Strings'></a>Strings
+###  9.4. <a name='Strings'></a>Strings
 
 Strings are immutable sequences of characters:
 
@@ -439,11 +547,11 @@ String greeting = "Hello, " + name;
 
 ---
 
-##  8. <a name='Collections'></a>Collections
+##  10. <a name='Collections'></a>Collections
 
 Java offers a rich set of collection classes that implement commonly used data structures like lists, sets, and queues. These classes are part of the [Java Collections Framework (JCF)](https://dev.java/learn/api/collections-framework/).
 
-###  8.1. <a name='Lists'></a>Lists
+###  10.1. <a name='Lists'></a>Lists
 
 Lists are ordered collections that can contain duplicate elements:
 
@@ -456,7 +564,7 @@ names.add("Alice");
 names.add("Bob");
 ```
 
-###  8.2. <a name='Sets'></a>Sets
+###  10.2. <a name='Sets'></a>Sets
 
 Sets are collections that cannot contain duplicate elements:
 
@@ -470,7 +578,7 @@ uniqueNumbers.add(2);
 uniqueNumbers.add(1);  // Will not be added
 ```
 
-###  8.3. <a name='Queues'></a>Queues
+###  10.3. <a name='Queues'></a>Queues
 
 Queues follow the First-In-First-Out (FIFO) principle:
 
@@ -483,7 +591,7 @@ tasks.offer("Read");
 tasks.offer("Write");
 ```
 
-###  8.4. <a name='Maps-1'></a>Maps
+###  10.4. <a name='Maps-1'></a>Maps
 
 As we saw in the Variables, Types chapter, maps store key-value pairs:
 
@@ -500,11 +608,84 @@ Each of these collection types has its own set of methods for manipulating data,
 
 ---
 
-##  9. <a name='Scopes'></a>Scopes
+##  11. <a name='Utilities'></a>10. Utilities
+
+###  11.1. <a name='java.util.Arrays'></a>java.util.Arrays
+
+Java SE provides several methods for performing array manipulations (common tasks, such as copying, sorting and searching arrays) in the `java.util.Arrays` class.
+
+Instead of using the `arraycopy()` method of the `System` class, you can use `java.util.Arrays.copyOfRange()`, and it requires fewer lines of code. Note that the second parameter of the `java.util.Arrays` method is the initial index of the range to be copied, inclusively, while the third parameter is the final index of the range to be copied, exclusively.
+
+```java
+String[] copyFrom = {
+    "Affogato", "Americano", "Cappuccino", "Corretto", "Cortado",
+    "Doppio", "Espresso", "Frappucino", "Freddo", "Lungo", "Macchiato",
+    "Marocchino", "Ristretto" };
+String[] copyTo = java.util.Arrays.copyOfRange(copyFrom, 2, 9);
+```
+
+Content: `Cappuccino Corretto Cortado Doppio Espresso Frappucino Freddo`.
+
+Other useful operations provided by methods in the `java.util.Arrays` class are:
+
+* Searching an array for a specific value to get the index at which it is placed (the `binarySearch()` method).
+* Comparing two arrays to determine if they are equal or not (the `equals()` method).
+* Filling an array to place a specific value at each index (the `fill()` method).
+* Sorting an array into ascending order. This can be done either sequentially, using the `sort()` method, or concurrently, using the `parallelSort()` method introduced in Java SE 8. Parallel sorting of large arrays on * multiprocessor systems is faster than sequential array sorting.
+* Creating a stream that uses an array as its source (the `stream()` method). For example, the following statement prints the contents of the `copyTo` array in the same way as in the previous example:
+
+```java
+java.util.Arrays.stream(copyTo).map(coffee -> coffee + " ").forEach(System.out::print);
+```
+
+See Aggregate Operations for more information about streams.
+
+* Converting an array to a string. The `toString()` method converts each element of the array to a string, separates them with commas, then surrounds them with brackets. For example, the following statement converts the `copyTo` array to a string and prints it:
+
+```java
+System.out.println(java.util.Arrays.toString(copyTo));
+```
+
+This statement prints the following:
+
+```text
+[Cappuccino, Corretto, Cortado, Doppio, Espresso, Frappucino, Freddo]
+```
+
+###  11.2. <a name='java.util.Dateandjava.util.Calendar'></a>java.util.Date and java.util.Calendar
+
+For date and time manipulations.
+
+```java
+Date date = new Date();
+Calendar calendar = Calendar.getInstance();
+```
+
+###  11.3. <a name='java.util.Random'></a>java.util.Random
+
+For generating random numbers.
+
+```java
+Random random = new Random();
+int number = random.nextInt(10);  // 0 to 9
+```
+
+###  11.4. <a name='java.util.Scanner'></a>java.util.Scanner
+
+For reading user input.
+
+```java
+Scanner scanner = new Scanner(System.in);
+String input = scanner.nextLine();
+```
+
+---
+
+##  12. <a name='Scopes'></a>Scopes
 
 In Java, the concept of scope refers to the region of code where a variable is accessible. Understanding scope is crucial for writing effective and bug-free programs. Here are the main types of scopes:
 
-###  9.1. <a name='LocalScope'></a>Local Scope
+###  12.1. <a name='LocalScope'></a>Local Scope
 
 Variables declared within a method are accessible only within that method:
 
@@ -515,7 +696,7 @@ public void showLocalScope() {
 }
 ```
 
-###  9.2. <a name='InstanceScope'></a>Instance Scope
+###  12.2. <a name='InstanceScope'></a>Instance Scope
 
 Variables declared within a class but outside any method are instance variables. They are accessible from all methods of the class:
 
@@ -529,7 +710,7 @@ public class MyClass {
 }
 ```
 
-###  9.3. <a name='ClassScopeStaticScope'></a>Class Scope (Static Scope)
+###  12.3. <a name='ClassScopeStaticScope'></a>Class Scope (Static Scope)
 
 Variables declared as `static` within a class are class variables. They are shared among all instances of the class:
 
@@ -543,7 +724,7 @@ public class MyClass {
 }
 ```
 
-###  9.4. <a name='BlockScope'></a>Block Scope
+###  12.4. <a name='BlockScope'></a>Block Scope
 
 Variables declared within a block `{}` are accessible only within that block:
 
@@ -559,11 +740,11 @@ public void showBlockScope() {
 
 ---
 
-##  10. <a name='BuiltinOperatorsandFunctions'></a>Builtin Operators and Functions
+##  13. <a name='BuiltinOperatorsandFunctions'></a>Builtin Operators and Functions
 
 Java provides a variety of built-in operators for performing operations like arithmetic, comparison, and logical operations. Here's a quick rundown:
 
-###  10.1. <a name='ArithmeticOperators'></a>Arithmetic Operators
+###  13.1. <a name='ArithmeticOperators'></a>Arithmetic Operators
 
 ```java
 int sum = 3 + 2;     // Addition
@@ -573,7 +754,7 @@ int quot = 8 / 2;    // Division
 int rem = 9 % 2;     // Remainder
 ```
 
-###  10.2. <a name='ComparisonOperators'></a>Comparison Operators
+###  13.2. <a name='ComparisonOperators'></a>Comparison Operators
 
 ```java
 boolean isEqual = (5 == 5);      // Equal to
@@ -582,7 +763,7 @@ boolean isGreater = (5 > 4);     // Greater than
 // And so on...
 ```
 
-###  10.3. <a name='LogicalOperators'></a>Logical Operators
+###  13.3. <a name='LogicalOperators'></a>Logical Operators
 
 ```java
 boolean andResult = (true && false);  // Logical AND
@@ -590,7 +771,7 @@ boolean orResult = (true || false);   // Logical OR
 boolean notResult = !true;            // Logical NOT
 ```
 
-###  10.4. <a name='BitwiseOperators'></a>Bitwise Operators
+###  13.4. <a name='BitwiseOperators'></a>Bitwise Operators
 
 ```java
 int bitwiseAnd = 5 & 3;  // Bitwise AND
@@ -609,11 +790,11 @@ These functions are accessible by importing the appropriate packages and can gre
 
 ---
 
-##  11. <a name='ConditionalsandLooping'></a>Conditionals and Looping
+##  14. <a name='ConditionalsandLooping'></a>Conditionals and Looping
 
 Decision-making and iteration are core aspects of any programming language. Java provides various constructs to handle these tasks.
 
-###  11.1. <a name='Conditionals'></a>Conditionals
+###  14.1. <a name='Conditionals'></a>Conditionals
 
 Java supports `if`, `else if`, and `else` statements for conditional logic:
 
@@ -644,24 +825,31 @@ switch (x) {
 }
 ```
 
-###  11.2. <a name='Looping'></a>Looping
+###  14.2. <a name='Looping'></a>Looping
 
 Java provides several types of loops, including `for`, `while`, and `do-while`:
 
+####  14.2.1. <a name='Forloop'></a>For loop
+
 ```java
-// For loop
 for (int i = 0; i < 5; i++) {
     System.out.println(i);
 }
+```
 
-// While loop
+####  14.2.2. <a name='Whileloop'></a>While loop
+
+```java
 int i = 0;
 while (i < 5) {
     System.out.println(i);
     i++;
 }
+```
 
-// Do-while loop
+####  14.2.3. <a name='Do-whileloop'></a>Do-while loop
+
+```java
 i = 0;
 do {
     System.out.println(i);
@@ -669,13 +857,39 @@ do {
 } while (i < 5);
 ```
 
+####  14.2.4. <a name='Break'></a>Break
+
+The break statement is used to exit a loop prematurely when a certain condition is met.
+
+```java
+for(int i = 0; i < 10; i++) {
+    if(i == 5) {
+        break;  // Exits the loop when i equals 5
+    }
+    System.out.println(i);
+}
+```
+
+####  14.2.5. <a name='Continue'></a>Continue
+
+The continue statement skips the current iteration of a loop and proceeds to the next iteration.
+
+```java
+for(int i = 0; i < 10; i++) {
+    if(i % 2 == 0) {
+        continue;  // Skips even numbers
+    }
+    System.out.println(i);
+}
+```
+
 ---
 
-##  12. <a name='Functions'></a>Functions
+##  15. <a name='Functions'></a>Functions
 
 Functions in Java are defined using the `void` keyword for functions that don't return a value, or the type of the return value for functions that do. Functions can also accept parameters.
 
-###  12.1. <a name='FunctionDeclarationandCalling'></a>Function Declaration and Calling
+###  15.1. <a name='FunctionDeclarationandCalling'></a>Function Declaration and Calling
 
 Here's how to define a simple function that adds two numbers:
 
@@ -692,7 +906,7 @@ int sum = addNumbers(5, 10);
 System.out.println("The sum is: " + sum);
 ```
 
-###  12.2. <a name='FunctionOverloading'></a>Function Overloading
+###  15.2. <a name='FunctionOverloading'></a>Function Overloading
 
 Java allows function overloading, where multiple functions can have the same name but different parameter lists:
 
@@ -706,7 +920,7 @@ public static double addNumbers(double a, double b) {
 }
 ```
 
-###  12.3. <a name='VariableArguments'></a>Variable Arguments
+###  15.3. <a name='VariableArguments'></a>Variable Arguments
 
 Java supports functions with variable-length argument lists, using the `...` syntax:
 
@@ -727,11 +941,11 @@ Functions are the building blocks of Java programs, enabling you to write reusab
 
 ---
 
-##  13. <a name='Classes'></a>Classes
+##  16. <a name='Classes'></a>Classes
 
 In Java, classes serve as the blueprint for creating objects. A class defines the properties (fields) and behaviors (methods) that its objects will have.
 
-###  13.1. <a name='DefiningaClass'></a>Defining a Class
+###  16.1. <a name='DefiningaClass'></a>Defining a Class
 
 Here's a simple class that represents a `Person`:
 
@@ -754,7 +968,7 @@ public class Person {
 }
 ```
 
-###  13.2. <a name='CreatinganObject'></a>Creating an Object
+###  16.2. <a name='CreatinganObject'></a>Creating an Object
 
 To create an object of the class, you use the `new` keyword:
 
@@ -762,7 +976,7 @@ To create an object of the class, you use the `new` keyword:
 Person person = new Person("Alice", 30);
 ```
 
-###  13.3. <a name='AccessingFieldsandMethods'></a>Accessing Fields and Methods
+###  16.3. <a name='AccessingFieldsandMethods'></a>Accessing Fields and Methods
 
 After creating an object, you can access its fields and methods:
 
@@ -771,13 +985,29 @@ System.out.println(person.name);  // Output: Alice
 person.introduce();               // Output: Hello, my name is Alice and I am 30 years old.
 ```
 
+###  16.4. <a name='Enums'></a>Enums
+
+Enums are used to define a set of named constants.
+
+```java
+enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+}
+```
+
+Usage:
+
+```java
+Day today = Day.MONDAY;
+```
+
 ---
 
-##  14. <a name='Interfaces'></a>Interfaces
+##  17. <a name='Interfaces'></a>Interfaces
 
 Interfaces in Java are used to define a contract that classes must adhere to. They can contain method signatures, default methods, and static methods. However, they cannot contain instance variables.
 
-###  14.1. <a name='DefininganInterface'></a>Defining an Interface
+###  17.1. <a name='DefininganInterface'></a>Defining an Interface
 
 Here's a simple interface for a `Drawable` object:
 
@@ -787,7 +1017,7 @@ public interface Drawable {
 }
 ```
 
-###  14.2. <a name='ImplementinganInterface'></a>Implementing an Interface
+###  17.2. <a name='ImplementinganInterface'></a>Implementing an Interface
 
 A class implements an interface using the `implements` keyword:
 
@@ -806,7 +1036,7 @@ public class Circle implements Drawable {
 }
 ```
 
-###  14.3. <a name='UsinganInterface'></a>Using an Interface
+###  17.3. <a name='UsinganInterface'></a>Using an Interface
 
 Once a class implements an interface, you can use it as an instance of that interface:
 
@@ -819,18 +1049,18 @@ Interfaces are a powerful feature in Java, allowing for abstraction, multiple in
 
 ---
 
-##  15. <a name='Exceptions'></a>Exceptions
+##  18. <a name='Exceptions'></a>Exceptions
 
 Exceptions in Java are events that disrupt the normal flow of a program's instructions. Java provides a robust exception-handling mechanism to manage runtime errors, so your program can continue to operate in a controlled manner.
 
-###  15.1. <a name='TypesofExceptions'></a>Types of Exceptions
+###  18.1. <a name='TypesofExceptions'></a>Types of Exceptions
 
 Java exceptions are divided into two categories:
 
 1. **Checked Exceptions**: These are exceptions that a method is expected to catch and handle. Examples include `IOException`, `SQLException`, etc.
 2. **Unchecked Exceptions**: These are exceptions that occur due to errors in code logic. Examples include `NullPointerException`, `ArithmeticException`, etc.
 
-###  15.2. <a name='BasicExceptionHandling'></a>Basic Exception Handling
+###  18.2. <a name='BasicExceptionHandling'></a>Basic Exception Handling
 
 You handle exceptions using a `try-catch` block:
 
@@ -854,7 +1084,7 @@ try {
 }
 ```
 
-###  15.3. <a name='FinallyBlock'></a>Finally Block
+###  18.3. <a name='FinallyBlock'></a>Finally Block
 
 The `finally` block contains code that is always executed, whether an exception is thrown or not:
 
@@ -870,11 +1100,11 @@ try {
 
 ---
 
-##  16. <a name='Generics'></a>Generics
+##  19. <a name='Generics'></a>Generics
 
 Generics enable you to write code that is type-safe while being reusable. With generics, you can define classes, interfaces, and methods where the type of data operated upon is specified as a parameter.
 
-###  16.1. <a name='BasicUsage'></a>Basic Usage
+###  19.1. <a name='BasicUsage'></a>Basic Usage
 
 Here's a simple example of a generic class:
 
@@ -899,7 +1129,7 @@ Box<Integer> intBox = new Box<>(10);
 Box<String> strBox = new Box<>("Hello");
 ```
 
-###  16.2. <a name='BoundedTypeParameters'></a>Bounded Type Parameters
+###  19.2. <a name='BoundedTypeParameters'></a>Bounded Type Parameters
 
 You can restrict the types that can be used with a generic class or method. For example, to allow only numbers:
 
@@ -912,7 +1142,7 @@ public class NumberBox<T extends Number> {
 
 Now, only `Number` and its subclasses can be used with `NumberBox`.
 
-###  16.3. <a name='Wildcards'></a>Wildcards
+###  19.3. <a name='Wildcards'></a>Wildcards
 
 Wildcards are useful for working with collections of unknown types:
 
@@ -928,11 +1158,11 @@ Generics provide a way for you to write more flexible and reusable code while ma
 
 ---
 
-##  17. <a name='Lambdas'></a>Lambdas
+##  20. <a name='Lambdas'></a>Lambdas
 
 Lambda expressions, introduced in Java 8, allow you to write instances of single-method interfaces (functional interfaces) in a much more concise, expressive, and readable way. They are used primarily to define inline implementation of a functional interface.
 
-###  17.1. <a name='BasicSyntax-1'></a>Basic Syntax
+###  20.1. <a name='BasicSyntax-1'></a>Basic Syntax
 
 The basic syntax of a lambda is either `(parameters) -> expression` or `(parameters) -> { statements; }`.
 
@@ -942,7 +1172,7 @@ For example, here's a lambda expression that takes two integers and returns thei
 (a, b) -> a + b
 ```
 
-###  17.2. <a name='UsingLambdaswithFunctionalInterfaces'></a>Using Lambdas with Functional Interfaces
+###  20.2. <a name='UsingLambdaswithFunctionalInterfaces'></a>Using Lambdas with Functional Interfaces
 
 Java 8 introduces the concept of functional interfaces, which are interfaces with just one abstract method. Lambda expressions can be used as instances of a functional interface.
 
@@ -953,7 +1183,7 @@ Runnable run = () -> System.out.println("Hello, world!");
 new Thread(run).start();
 ```
 
-###  17.3. <a name='MethodReferences'></a>Method References
+###  20.3. <a name='MethodReferences'></a>Method References
 
 Method references provide a shorthand notation of a lambda expression to call a method:
 
@@ -964,11 +1194,11 @@ names.forEach(System.out::println);
 
 ---
 
-##  18. <a name='Annotations'></a>Annotations
+##  21. <a name='Annotations'></a>Annotations
 
 Annotations provide metadata about the program elements they annotate. Java has built-in annotations like `@Override`, `@Deprecated`, and `@SuppressWarnings`, and you can also define custom annotations.
 
-###  18.1. <a name='Built-InAnnotations'></a>Built-In Annotations
+###  21.1. <a name='Built-InAnnotations'></a>Built-In Annotations
 
 * `@Override`: Indicates that a method is intended to override a method in a superclass.
   
@@ -997,7 +1227,7 @@ Annotations provide metadata about the program elements they annotate. Java has 
   }
   ```
 
-###  18.2. <a name='CustomAnnotations'></a>Custom Annotations
+###  21.2. <a name='CustomAnnotations'></a>Custom Annotations
 
 You can define your own annotations like this:
 
@@ -1021,11 +1251,11 @@ Annotations are often used for code analysis, creating documentation, or trackin
 
 ---
 
-##  19. <a name='DateTime'></a>Date, Time
+##  22. <a name='DateTime'></a>Date, Time
 
 Java provides a comprehensive date and time API through the `java.time` package, introduced in Java 8. This package provides classes like `LocalDate`, `LocalTime`, and `LocalDateTime`, among others, to help you represent and manipulate date and time in a type-safe manner.
 
-###  19.1. <a name='LocalDate'></a>LocalDate
+###  22.1. <a name='LocalDate'></a>LocalDate
 
 `LocalDate` represents a date without a time or time zone:
 
@@ -1036,7 +1266,7 @@ LocalDate today = LocalDate.now();
 LocalDate firstDayOfMonth = today.withDayOfMonth(1);
 ```
 
-###  19.2. <a name='LocalTime'></a>LocalTime
+###  22.2. <a name='LocalTime'></a>LocalTime
 
 `LocalTime` represents time without a date or time zone:
 
@@ -1047,7 +1277,7 @@ LocalTime now = LocalTime.now();
 LocalTime midday = LocalTime.of(12, 0);
 ```
 
-###  19.3. <a name='LocalDateTime'></a>LocalDateTime
+###  22.3. <a name='LocalDateTime'></a>LocalDateTime
 
 `LocalDateTime` is a composite of `LocalDate` and `LocalTime`:
 
@@ -1057,7 +1287,7 @@ import java.time.LocalDateTime;
 LocalDateTime currentDateTime = LocalDateTime.now();
 ```
 
-###  19.4. <a name='FormattingandParsing'></a>Formatting and Parsing
+###  22.4. <a name='FormattingandParsing'></a>Formatting and Parsing
 
 You can format and parse dates and times using `DateTimeFormatter`:
 
@@ -1071,7 +1301,7 @@ String formattedDateTime = now.format(formatter);
 
 ---
 
-##  20. <a name='PatternMatchingRegularExpressions'></a>Pattern Matching, Regular Expressions
+##  23. <a name='PatternMatchingRegularExpressions'></a>Pattern Matching, Regular Expressions
 
 Java provides robust support for pattern matching through the `java.util.regex` package. This is useful for tasks like data validation, text searching, and text manipulation.
 
@@ -1092,7 +1322,7 @@ Here are some key features supported by Java's regex engine:
 
 Although Java's regex engine is not strictly PCRE-compatible, it is quite powerful and supports many of the features found in other advanced regular expression languages.
 
-###  20.1. <a name='BasicSyntax-1'></a>Basic Syntax
+###  23.1. <a name='BasicSyntax-1'></a>Basic Syntax
 
 The basic syntax for a regular expression pattern involves special characters like `*`, `+`, `.`, `?`, etc., to describe the pattern.
 
@@ -1101,7 +1331,7 @@ The basic syntax for a regular expression pattern involves special characters li
 * `+`: One or more of the previous element
 * `?`: Zero or one of the previous element
 
-###  20.2. <a name='UsingRegularExpressions'></a>Using Regular Expressions
+###  23.2. <a name='UsingRegularExpressions'></a>Using Regular Expressions
 
 You can use the `Pattern` and `Matcher` classes to work with regular expressions:
 
@@ -1115,7 +1345,7 @@ Matcher matcher = pattern.matcher("aaaaab");
 boolean matches = matcher.matches();  // Returns true
 ```
 
-###  20.3. <a name='FindandReplace'></a>Find and Replace
+###  23.3. <a name='FindandReplace'></a>Find and Replace
 
 You can find and replace substrings using regular expressions:
 
@@ -1128,11 +1358,11 @@ Regular expressions are a powerful tool for text processing, enabling complex pa
 
 ---
 
-##  21. <a name='Streams'></a>Streams
+##  24. <a name='Streams'></a>Streams
 
 Streams in Java, introduced in Java 8, provide a powerful and flexible framework for processing sequences of elements (e.g., collections, arrays, or I/O channels) in a functional style. They are not data structures but abstractions that describe manipulations to be performed on the underlying data.
 
-###  21.1. <a name='CreatingStreams'></a>Creating Streams
+###  24.1. <a name='CreatingStreams'></a>Creating Streams
 
 You can create streams from various data sources:
 
@@ -1147,7 +1377,7 @@ Stream<Integer> streamFromArray = Arrays.stream(new Integer[]{1, 2, 3});
 Stream<Integer> streamOfElements = Stream.of(1, 2, 3);
 ```
 
-###  21.2. <a name='CommonOperations'></a>Common Operations
+###  24.2. <a name='CommonOperations'></a>Common Operations
 
 Here are some common stream operations:
 
@@ -1166,7 +1396,7 @@ List<Integer> evenNumbers = numbers.stream()
                                   .collect(Collectors.toList());
 ```
 
-###  21.3. <a name='ParallelStreams'></a>Parallel Streams
+###  24.3. <a name='ParallelStreams'></a>Parallel Streams
 
 Java Streams can also be parallelized to perform operations using multiple threads:
 
@@ -1178,11 +1408,11 @@ List<Integer> result = numbers.parallelStream()
 
 ---
 
-##  22. <a name='FilesandIO'></a>Files and I/O
+##  25. <a name='FilesandIO'></a>Files and I/O
 
 Java provides a rich set of APIs for file and I/O operations through packages like `java.io` and `java.nio.file`.
 
-###  22.1. <a name='ReadingfromaFile'></a>Reading from a File
+###  25.1. <a name='ReadingfromaFile'></a>Reading from a File
 
 Here's how you can read from a text file using `BufferedReader`:
 
@@ -1201,7 +1431,7 @@ try (BufferedReader reader = new BufferedReader(new FileReader("file.txt"))) {
 }
 ```
 
-###  22.2. <a name='WritingtoaFile'></a>Writing to a File
+###  25.2. <a name='WritingtoaFile'></a>Writing to a File
 
 You can write to a text file using `BufferedWriter`:
 
@@ -1217,7 +1447,7 @@ try (BufferedWriter writer = new BufferedWriter(new FileWriter("file.txt"))) {
 }
 ```
 
-###  22.3. <a name='NIO.2forFileOperations'></a>NIO.2 for File Operations
+###  25.3. <a name='NIO.2forFileOperations'></a>NIO.2 for File Operations
 
 Java NIO.2 (`java.nio.file` package) provides more comprehensive and flexible file I/O operations:
 
@@ -1234,11 +1464,11 @@ These classes provide a more modern approach to file manipulation, allowing for 
 
 ---
 
-##  23. <a name='ConcurrencyinJava'></a>Concurrency in Java
+##  26. <a name='ConcurrencyinJava'></a>Concurrency in Java
 
 Java provides a rich set of features for concurrent programming.
 
-###  23.1. <a name='Threads'></a>Threads
+###  26.1. <a name='Threads'></a>Threads
 
 Java's primary unit of concurrency is the `Thread` (Go: Coroutines). Threads can be created by implementing the `Runnable` interface or extending the `Thread` class.
 
@@ -1249,7 +1479,7 @@ Thread thread = new Thread(() -> {
 thread.start();
 ```
 
-###  23.2. <a name='BlockingQueue'></a>BlockingQueue
+###  26.2. <a name='BlockingQueue'></a>BlockingQueue
 
 Java's `BlockingQueue` (Go: Channels) can be used as a way to safely pass data between threads.
 
@@ -1262,7 +1492,7 @@ queue.put(1);  // Blocks if the queue is full
 Integer value = queue.take();  // Blocks if the queue is empty
 ```
 
-###  23.3. <a name='Executors'></a>Executors
+###  26.3. <a name='Executors'></a>Executors
 
 Java doesn't have a `select` statement like Go, but you can achieve similar functionality using `ExecutorService`.
 
@@ -1276,7 +1506,7 @@ executor.submit(() -> {
 });
 ```
 
-###  23.4. <a name='CountDownLatch'></a>CountDownLatch
+###  26.4. <a name='CountDownLatch'></a>CountDownLatch
 
 `CountDownLatch` (Go: WaitGroup) is used to make a thread wait until other threads complete their tasks.
 
@@ -1292,7 +1522,7 @@ latch.countDown();
 latch.await();
 ```
 
-###  23.5. <a name='SynchronizedLocks'></a>Synchronized, Locks
+###  26.5. <a name='SynchronizedLocks'></a>Synchronized, Locks
 
 Java offers various mechanisms for mutual exclusion (Go: Mutex), including `synchronized` blocks and explicit locks like `ReentrantLock`.
 
@@ -1318,11 +1548,11 @@ try {
 
 ---
 
-##  24. <a name='UnitTestsandOtherTesting'></a>Unit Tests and Other Testing
+##  27. <a name='UnitTestsandOtherTesting'></a>Unit Tests and Other Testing
 
 Java provides robust support for unit testing through libraries like JUnit.
 
-###  24.1. <a name='BasicUnitTest'></a>Basic Unit Test
+###  27.1. <a name='BasicUnitTest'></a>Basic Unit Test
 
 Here's a simple JUnit test:
 
@@ -1339,7 +1569,7 @@ public class CalculatorTest {
 }
 ```
 
-###  24.2. <a name='Mocking'></a>Mocking
+###  27.2. <a name='Mocking'></a>Mocking
 
 Libraries like Mockito are often used for mocking dependencies.
 
@@ -1360,17 +1590,21 @@ public class UserServiceTest {
 }
 ```
 
+###  27.3. <a name='Coverage'></a>Coverage
+
+Test coverage tools like [JaCoCo](https://www.baeldung.com/jacoco) can be used to identify which parts of your codebase are not covered by your tests. Aim for **at least 80% coverage** for a well-tested application.
+
 ---
 
-##  25. <a name='FunctionalProgramminginJava'></a>Functional Programming in Java
+##  28. <a name='FunctionalProgramminginJava'></a>Functional Programming in Java
 
 Java 8 introduced various features that enable functional programming styles.
 
-###  25.1. <a name='LambdaExpressions'></a>Lambda Expressions
+###  28.1. <a name='LambdaExpressions'></a>Lambda Expressions
 
 As covered earlier, lambdas allow for a concise way to create anonymous methods.
 
-###  25.2. <a name='StreamsAPI'></a>Streams API
+###  28.2. <a name='StreamsAPI'></a>Streams API
 
 Streams provide a functional approach to processing collections.
 
@@ -1381,7 +1615,7 @@ List<Integer> squares = numbers.stream()
                                .collect(Collectors.toList());
 ```
 
-###  25.3. <a name='Optional'></a>Optional
+###  28.3. <a name='Optional'></a>Optional
 
 `Optional` is a container that may or may not contain a value, allowing you to better deal with cases with the absence of a value.
 
@@ -1394,11 +1628,11 @@ These features make it easier to write programs in a functional style, promoting
 
 ---
 
-##  26. <a name='FunctionalProgramminginJavaExtended'></a>Functional Programming in Java (Extended)
+##  29. <a name='FunctionalProgramminginJavaExtended'></a>Functional Programming in Java (Extended)
 
 Let's dive deeper into the functional programming capabilities that were introduced in Java 8 and how they can be used effectively.
 
-###  26.1. <a name='Higher-OrderFunctions'></a>Higher-Order Functions
+###  29.1. <a name='Higher-OrderFunctions'></a>Higher-Order Functions
 
 In functional programming, functions are first-class citizens, meaning they can be passed as arguments to other functions. In Java, you can achieve this using functional interfaces like `Function`, `Predicate`, and `Consumer`.
 
@@ -1415,11 +1649,11 @@ Predicate<Integer> isNonZero = (i) -> i != 0;
 boolean nonZero = isNonZero.test(5);  // true
 ```
 
-###  26.2. <a name='StreamOperations'></a>Stream Operations
+###  29.2. <a name='StreamOperations'></a>Stream Operations
 
 Streams offer a range of functional-style operations for processing sequences of elements:
 
-####  26.2.1. <a name='Filtering'></a>Filtering
+####  29.2.1. <a name='Filtering'></a>Filtering
 
 Use the `filter` method to filter elements based on a condition.
 
@@ -1430,7 +1664,7 @@ List<Integer> evenNumbers = numbers.stream()
                                    .collect(Collectors.toList());
 ```
 
-####  26.2.2. <a name='Mapping'></a>Mapping
+####  29.2.2. <a name='Mapping'></a>Mapping
 
 The `map` method applies a function to each element.
 
@@ -1441,7 +1675,7 @@ List<Integer> squares = numbers.stream()
                                .collect(Collectors.toList());
 ```
 
-####  26.2.3. <a name='Reducing'></a>Reducing
+####  29.2.3. <a name='Reducing'></a>Reducing
 
 Use the `reduce` method to reduce a stream to a single value.
 
@@ -1451,7 +1685,7 @@ int sum = numbers.stream()
                  .reduce(0, Integer::sum);
 ```
 
-####  26.2.4. <a name='FlatMapping'></a>Flat Mapping
+####  29.2.4. <a name='FlatMapping'></a>Flat Mapping
 
 The `flatMap` method is used to flatten nested collections.
 
@@ -1465,7 +1699,7 @@ List<Integer> flatList = nestedList.stream()
                                    .collect(Collectors.toList());
 ```
 
-###  26.3. <a name='Immutability-1'></a>Immutability
+###  29.3. <a name='Immutability-1'></a>Immutability
 
 Functional programming encourages the use of immutable data. While Java is not inherently an immutable language, you can design your classes to be immutable.
 
@@ -1489,7 +1723,7 @@ public final class ImmutablePerson {
 }
 ```
 
-###  26.4. <a name='OptionalClass'></a>Optional Class
+###  29.4. <a name='OptionalClass'></a>Optional Class
 
 The `Optional` class helps you deal more gracefully with nullable values without having to explicitly do null checks.
 
@@ -1508,7 +1742,7 @@ Java's functional features bring a lot of power and flexibility, allowing you to
 
 ---
 
-##  27. <a name='Summary'></a>Summary
+##  30. <a name='Summary'></a>Summary
 
 In this guide, we've covered a wide range of topics to give you a comprehensive understanding of Java programming essentials. We started with the basics, delving into the history of Java, how to run Java programs, and discussed modern and safe Java practices. We touched on fundamental building blocks like variables, types, scopes, and built-in operators.
 
